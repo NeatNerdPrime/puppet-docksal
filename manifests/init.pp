@@ -4,6 +4,9 @@
 #
 # @example
 #   include docksal
+#
+# @param version
+#   Specify the version of docksal to install. Can be any of a git tag, commit ref, or branch
 class docksal (
   String $version,
 ) {

@@ -1,16 +1,28 @@
-# A description of what this defined type does
+# Configure docksal for an individual user.
 #
-# @summary A short summary of the purpose of this defined type.
+# @summary manage the .docksal/docksal.env file for individual users.
 #
 # @example
 #   docksal::config { 'namevar': }
+#
+# @param home_directory
+#   The directory within which the config files for docksal live. Defaults to `/home/$name`.
+#
+# @param ci
+#   Whether to add "CI=1" to the docksal env file.
+#
+# @param native_docker
+#   Whether to add "NATIVEDOCKER=1" to the docksal env file.
+#
+# @param katacoda
+#   Whether to add "KATACODA=1" to the docksal env file.
 define docksal::config(
-  String $user_home = "/home/${name}",
+  String $home_directory = "/home/${name}",
   Boolean $ci = false,
   Boolean $native_docker = false,
   Boolean $katacoda = false
 ) {
-  $config_dir = "${user_home}/.docksal"
+  $config_dir = "${home_directory}/.docksal"
   file { $config_dir:
     ensure => directory,
     owner  => 'root',
