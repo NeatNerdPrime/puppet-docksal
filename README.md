@@ -17,11 +17,11 @@ Installs and configures the docksal (github.com/docksal/docksal) program both fo
 
 ## Setup
 
-### What docksal affects **OPTIONAL**
+### What docksal affects
 
 Installs the fin cli to /usr/local/fin so that any user can execute it. Also creates user-specific config files in <home>/.docksal/docksal.env and assumes full control over that file.
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements
 
 Requires docker installed. For Mac requires docker installed either natively, or virtualbox installed.
 

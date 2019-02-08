@@ -3,7 +3,7 @@
 # @summary manage the .docksal/docksal.env file for individual users.
 #
 # @example
-#   docksal::config { 'namevar': }
+#   docksal::config { 'username': }
 #
 # @param home_directory
 #   The directory within which the config files for docksal live. Defaults to `/home/$name`.
