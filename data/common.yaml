@@ -1,0 +1,6 @@
+---
+docksal::version: 'master'
+docksal::ci: false
+docksal::native_docker: false
+docksal::katacoda: false
+docksal::global_config_dir: '/root/.docksal'
