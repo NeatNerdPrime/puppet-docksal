@@ -46,7 +46,7 @@ Configure docksal for an individual user.
 ##### 
 
 ```puppet
-docksal::config { 'namevar': }
+docksal::config { 'username': }
 ```
 
 #### Parameters
