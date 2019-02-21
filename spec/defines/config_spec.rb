@@ -3,7 +3,12 @@ require 'spec_helper'
 describe 'docksal::config' do
   let(:title) { 'username' }
   let(:params) do
-    {}
+    {
+      :ci => false,
+      :native_docker => false,
+      :katacoda => false,
+      :stats_optout => false
+    }
   end
 
   on_supported_os.each do |os, os_facts|
