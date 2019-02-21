@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/microserve-io/puppet-docksal.svg?branch=master)](https://travis-ci.org/microserve-io/puppet-docksal)
 
 # docksal
 #### Table of Contents
