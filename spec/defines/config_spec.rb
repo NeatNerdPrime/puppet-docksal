@@ -4,10 +4,10 @@ describe 'docksal::config' do
   let(:title) { 'username' }
   let(:params) do
     {
-      :ci => false,
-      :native_docker => false,
-      :katacoda => false,
-      :stats_optout => false
+      ci: false,
+      native_docker: false,
+      katacoda: false,
+      stats_optout: false,
     }
   end
 

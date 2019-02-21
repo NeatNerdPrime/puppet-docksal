@@ -43,7 +43,7 @@ define docksal::config(
   }
 
   exec { "update_fin_for_${name}":
-    command     => "/usr/local/fin update",
+    command     => '/usr/local/fin update',
     cwd         => $home_directory,
     environment => "HOME=${home_directory}",
     user        => $name
