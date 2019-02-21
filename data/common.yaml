@@ -1,6 +1,9 @@
 ---
 docksal::version: 'master'
-docksal::ci: false
-docksal::native_docker: false
-docksal::katacoda: false
-docksal::global_config_dir: '/root/.docksal'
+docksal::prefix: '/usr/local'
+
+docksal::config::ci: false
+docksal::config::native_docker: false
+docksal::config::katacoda: false
+docksal::config::global_config_dir: '/root/.docksal'
+docksal::config::stats_optout: false

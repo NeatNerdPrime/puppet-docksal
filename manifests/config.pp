@@ -17,10 +17,11 @@
 # @param katacoda
 #   Whether to add "KATACODA=1" to the docksal env file.
 define docksal::config(
-  String $home_directory = "/home/${name}",
-  Boolean $ci = false,
-  Boolean $native_docker = false,
-  Boolean $katacoda = false
+  Boolean $ci,
+  Boolean $native_docker,
+  Boolean $katacoda,
+  Boolean $stats_optout,
+  String $home_directory = "/home/${name}"
 ) {
   $config_dir = "${home_directory}/.docksal"
   file { $config_dir:
@@ -32,7 +33,19 @@ define docksal::config(
 
   file { "${config_dir}/docksal.env":
     ensure  => file,
-    content => epp('docksal/docksal.env.epp', {'ci' => $ci, 'native' => $native_docker, 'katacoda' => $katacoda}),
+    content => epp('docksal/docksal.env.epp', {
+      'ci'           => $ci,
+      'native'       => $native_docker,
+      'katacoda'     => $katacoda,
+      'stats_optout' => $stats_optout
+    }),
     require => File[$config_dir]
+  }
+
+  exec { "update_fin_for_${name}":
+    command     => "/usr/local/fin update",
+    cwd         => $home_directory,
+    environment => "HOME=${home_directory}",
+    user        => $name
   }
 }
