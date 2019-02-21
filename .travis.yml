@@ -34,9 +34,9 @@ notifications:
   email: false
 deploy:
   provider: puppetforge
-  user: puppet
+  user: microserve
   password:
-    secure: ""
+    secure: "jwm4t+L+cNdoKkYoXpwmm92uGyU6jBAN+VurxDFSzqBz7uG/RurueIaLVaBHCSvpXzXE+qOFUrCqhNK7vbBtqIcQajkbf9M/a2i73r7JCGhNg72XfnYuloyWGkvB4xMsGhSmPVOnVmK4h5qUGs8i5Vw2KMYbJnqhj4bAmXwZgS/CbaGE7woTf53CI7CgYe04i6SC0X4PRJTh2F9a9M4Ln1XdoJ59IeZ2k6cDKcL+vNL+Wgz8ibXuWIu9On0VFOLYtfjioGdYj08jvdtxA8gJdglr/q98GgOqxWHOlwiZepxz7zyorXdVzHQbzjXSLNwnlR4H1KSwtVTr7aWYda6xmYaFyAxkj0+e1RX8OwNsyLt+v0aG5ko92M6Xmoxqy2tAwD9grGBTZjqst+422QKz2+D1IwloOhpvzN3GsY+MjakCmm4GNLRJjO8MWIdieXTXG40SA1UjYg5/jj9eZA3aLXGb4y1kM9rUMBh/Ld/wYCLbGZJydsGpk0jSZKxCtMGzDd46b1gjkqRM0pt9+kD3ohmQtsd3jMbXVySdICsYIEo2Q/qPIh+H3GyCRLlOfYzScQFicD2DJWF6jFQquM+ZXHITFZFDPzPMK5pNQ0132BOCYln5fAAc2xx08NHXkB8RQyilzzFl33MBx6/vNnB/DtTTClHtGnJa65H9FIzQ/lk="
   on:
     tags: true
     all_branches: true
