@@ -1,9 +1,9 @@
 {
   "name": "microserve-docksal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Marcus Hann",
   "summary": "Deploy and configure the Docksal development environment.",
-  "license": "proprietary",
+  "license": "MIT",
   "source": "https://github.com/microserve-io/puppet-docksal",
   "dependencies": [
 
