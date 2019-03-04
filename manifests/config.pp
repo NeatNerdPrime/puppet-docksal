@@ -27,8 +27,8 @@ define docksal::config(
   $config_dir = "${home_directory}/.docksal"
   file { $config_dir:
     ensure => directory,
-    owner  => 'root',
-    group  => 'root',
+    owner  => $name,
+    group  => $name,
     mode   => '0755'
   }
 
@@ -41,6 +41,8 @@ define docksal::config(
       'stats_optout' => $stats_optout,
       'env'          => $env
     }),
+    owner => $name,
+    group => $name,
     require => File[$config_dir]
   }
 
