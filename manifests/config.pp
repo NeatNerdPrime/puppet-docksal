@@ -41,8 +41,8 @@ define docksal::config(
       'stats_optout' => $stats_optout,
       'env'          => $env
     }),
-    owner => $name,
-    group => $name,
+    owner   => $name,
+    group   => $name,
     require => File[$config_dir]
   }
 
