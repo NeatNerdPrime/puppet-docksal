@@ -1,6 +1,6 @@
 ---
 docksal::version: 'master'
-docksal::prefix: '/usr/local'
+docksal::prefix: '/usr/local/bin'
 
 docksal::config::ci: false
 docksal::config::native_docker: false
