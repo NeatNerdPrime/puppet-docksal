@@ -7,7 +7,7 @@ describe 'docksal' do
 
       it { is_expected.to compile }
       it do
-        is_expected.to contain_file('/usr/local/fin').with(
+        is_expected.to contain_file('/usr/local/bin/fin').with(
           'ensure' => 'file',
           'mode' => '0755',
         )
