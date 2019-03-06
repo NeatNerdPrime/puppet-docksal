@@ -18,11 +18,11 @@ describe 'docksal::config' do
       context 'docksal class without any parameters' do
         it { is_expected.to compile }
         it do
-          is_expected.to contain_file('/home/username/.docksal').with({
+          is_expected.to contain_file('/home/username/.docksal').with(
             ensure: 'directory',
             owner:  'username',
-            group:  'username'
-          })
+            group:  'username',
+          )
         end
 
         it do
@@ -30,7 +30,7 @@ describe 'docksal::config' do
             ensure:  'file',
             content: %r{^$},
             owner:   'username',
-            group:   'username'
+            group:   'username',
           ).that_requires('File[/home/username/.docksal]')
         end
       end
@@ -43,7 +43,7 @@ describe 'docksal::config' do
             ensure: 'file',
             content: %r{CI=1\n},
             owner:   'username',
-            group:   'username'
+            group:   'username',
           ).that_requires('File[/home/username/.docksal]')
         end
       end
@@ -56,7 +56,7 @@ describe 'docksal::config' do
             ensure: 'file',
             content: %r{DOCKER_NATIVE=1\n},
             owner:   'username',
-            group:   'username'
+            group:   'username',
           ).that_requires('File[/home/username/.docksal]')
         end
       end
@@ -69,7 +69,7 @@ describe 'docksal::config' do
             ensure: 'file',
             content: %r{KATACODA=1\n},
             owner:   'username',
-            group:   'username'
+            group:   'username',
           ).that_requires('File[/home/username/.docksal]')
         end
       end
@@ -82,7 +82,7 @@ describe 'docksal::config' do
             ensure: 'file',
             content: %r{DOCKSAL_STATS_OPTOUT=1\n},
             owner:   'username',
-            group:   'username'
+            group:   'username',
           ).that_requires('File[/home/username/.docksal]')
         end
       end
@@ -95,7 +95,7 @@ describe 'docksal::config' do
             ensure: 'file',
             content: %r{TEST=2\n},
             owner:   'username',
-            group:   'username'
+            group:   'username',
           ).that_requires('File[/home/username/.docksal]')
         end
       end
