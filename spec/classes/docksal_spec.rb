@@ -10,7 +10,7 @@ describe 'docksal' do
         is_expected.to contain_file('/usr/local/bin/fin').with(
           'ensure' => 'file',
           'mode' => '0755',
-        )
+        ).with_content(/^UUID=.*$/)
       end
     end
   end
