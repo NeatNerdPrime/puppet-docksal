@@ -39,7 +39,8 @@ define docksal::config(
       'native'       => $native_docker,
       'katacoda'     => $katacoda,
       'stats_optout' => $stats_optout,
-      'env'          => $env
+      'env'          => $env,
+      'uuid'         => fqdn_uuid($name),
     }),
     owner   => $name,
     group   => $name,
