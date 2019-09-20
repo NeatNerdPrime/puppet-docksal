@@ -28,7 +28,7 @@ describe 'docksal::config' do
         it do
           is_expected.to contain_file('/home/username/.docksal/docksal.env').with(
             ensure:  'file',
-            content: %r{^$},
+            content: %r{^UUID=.*$},
             owner:   'username',
             group:   'username',
           ).that_requires('File[/home/username/.docksal]')
