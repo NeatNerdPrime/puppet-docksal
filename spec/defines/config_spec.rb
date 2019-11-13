@@ -26,15 +26,17 @@ describe 'docksal::config' do
         end
 
         it do
-          is_expected.to contain_file('/home/username/.docksal/docksal.env').with(
-            ensure:  'file',
-            content: %r{^DOCKSAL_UUID=.*$},
-            owner:   'username',
-            group:   'username',
-          ).that_requires('File[/home/username/.docksal]')
-           .without_content(/^PROJECT_DANGLING_TIMEOUT=/)
-           .without_content(/^PROJECT_INACTIVITY_TIMEOUT=/)
-           .without_content(/^PROJECTS_ROOT=/)
+          is_expected.to contain_file('/home/username/.docksal/docksal.env')
+            .with(
+              ensure:  'file',
+              content: %r{^DOCKSAL_UUID=.*$},
+              owner:   'username',
+              group:   'username',
+            )
+            .that_requires('File[/home/username/.docksal]')
+            .without_content(%r{^PROJECT_DANGLING_TIMEOUT=})
+            .without_content(%r{^PROJECT_INACTIVITY_TIMEOUT=})
+            .without_content(%r{^PROJECTS_ROOT=})
         end
       end
 
@@ -104,20 +106,23 @@ describe 'docksal::config' do
       end
 
       context 'docksal class with timeout variables set' do
-        let (:params) { super().merge(project_inactivity_timeout: "1h", project_dangling_timeout: "20h") }
+        let(:params) { super().merge(project_inactivity_timeout: '1h', project_dangling_timeout: '20h') }
 
         it do
-          is_expected.to contain_file('/home/username/.docksal/docksal.env').with(
-            ensure: 'file',
-            content: %r{PROJECT_INACTIVITY_TIMEOUT=1h\n},
-            owner:   'username',
-            group:   'username',
-          ).that_requires('File[/home/username/.docksal]').with_content(/^PROJECT_DANGLING_TIMEOUT=20h/)
+          is_expected.to contain_file('/home/username/.docksal/docksal.env')
+            .with(
+              ensure: 'file',
+              content: %r{PROJECT_INACTIVITY_TIMEOUT=1h\n},
+              owner:   'username',
+              group:   'username',
+            )
+            .that_requires('File[/home/username/.docksal]')
+            .with_content(%r{^PROJECT_DANGLING_TIMEOUT=20h})
         end
       end
 
       context 'docksal class with projects root variable set' do
-        let (:params) { super().merge(projects_root: "/docksal") }
+        let(:params) { super().merge(projects_root: '/docksal') }
 
         it do
           is_expected.to contain_file('/home/username/.docksal/docksal.env').with(
