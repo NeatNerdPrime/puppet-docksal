@@ -99,6 +99,32 @@ describe 'docksal::config' do
           ).that_requires('File[/home/username/.docksal]')
         end
       end
+
+      context 'docksal class with timeout variables set' do
+        let (:params) { super().merge(project_inactivity_timeout: "1h", project_dangling_timeout: "20h") }
+
+        it do
+          is_expected.to contain_file('/home/username/.docksal/docksal.env').with(
+            ensure: 'file',
+            content: %r{PROJECT_INACTIVITY_TIMEOUT=1h\n},
+            owner:   'username',
+            group:   'username',
+          ).that_requires('File[/home/username/.docksal]').with_content(/^PROJECT_DANGLING_TIMEOUT=20h/)
+        end
+      end
+
+      context 'docksal class with projects root variable set' do
+        let (:params) { super().merge(projects_root: "/docksal") }
+
+        it do
+          is_expected.to contain_file('/home/username/.docksal/docksal.env').with(
+            ensure: 'file',
+            content: %r{PROJECTS_ROOT=/docksal\n},
+            owner:   'username',
+            group:   'username',
+          ).that_requires('File[/home/username/.docksal]')
+        end
+      end
     end
   end
 end
