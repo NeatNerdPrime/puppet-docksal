@@ -53,10 +53,11 @@ define docksal::config(
     require => File[$config_dir]
   }
 
-  exec { "update_fin_for_${name}":
-    command     => '/usr/local/fin update',
+  exec { "initial_update_fin_for_${name}":
+    command     => '/usr/local/fin update --stack',
     cwd         => $home_directory,
     environment => "HOME=${home_directory}",
-    user        => $name
+    user        => $name,
+    creates     => "${config_dir}/stacks",
   }
 }

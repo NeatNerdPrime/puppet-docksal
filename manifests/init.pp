@@ -11,11 +11,16 @@ class docksal (
   String $version,
   String $prefix
 ) {
-  file { "${prefix}/fin":
+  file { "${prefix}/fin-${version}":
     ensure => file,
     source => "https://raw.githubusercontent.com/docksal/docksal/${version}/bin/fin",
     mode   => '0755',
     owner  => 'root',
     group  => 'root'
+  }
+
+  file { "${prefix}/fin":
+    ensure => link,
+    target => "${prefix}/fin-${version}",
   }
 }
