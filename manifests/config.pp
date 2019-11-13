@@ -60,4 +60,13 @@ define docksal::config(
     user        => $name,
     creates     => "${config_dir}/stacks",
   }
+
+  exec { "reset_fin_system_for_${name}":
+    command     => "/usr/local/fin system reset",
+    cwd         => $home_directory,
+    environment => "HOME=${home_directory}",
+    user        => $name,
+    subscribe   => exec["initial_update_fin_for_${name}"],
+    refreshonly => true,
+  }
 }
