@@ -32,6 +32,9 @@ describe 'docksal::config' do
             owner:   'username',
             group:   'username',
           ).that_requires('File[/home/username/.docksal]')
+           .without_content(/^PROJECT_DANGLING_TIMEOUT=/)
+           .without_content(/^PROJECT_INACTIVITY_TIMEOUT=/)
+           .without_content(/^PROJECTS_ROOT=/)
         end
       end
 
