@@ -21,9 +21,9 @@ define docksal::config(
   Boolean              $native_docker,
   Boolean              $katacoda,
   Boolean              $stats_optout,
-  String               $project_inactivity_timeout = "",
-  String               $project_dangling_timeout = "",
-  String               $projects_root = "",
+  String               $project_inactivity_timeout = '',
+  String               $project_dangling_timeout = '',
+  String               $projects_root = '',
   String               $home_directory = "/home/${name}",
   Hash[String, String] $env = {}
 ) {
