@@ -21,6 +21,9 @@ define docksal::config(
   Boolean              $native_docker,
   Boolean              $katacoda,
   Boolean              $stats_optout,
+  String               $project_inactivity_timeout = "",
+  String               $project_dangling_timeout = "",
+  String               $projects_root = "",
   String               $home_directory = "/home/${name}",
   Hash[String, String] $env = {}
 ) {
@@ -35,12 +38,15 @@ define docksal::config(
   file { "${config_dir}/docksal.env":
     ensure  => file,
     content => epp('docksal/docksal.env.epp', {
-      'ci'           => $ci,
-      'native'       => $native_docker,
-      'katacoda'     => $katacoda,
-      'stats_optout' => $stats_optout,
-      'env'          => $env,
-      'uuid'         => fqdn_uuid($name),
+      'ci'                         => $ci,
+      'native'                     => $native_docker,
+      'katacoda'                   => $katacoda,
+      'stats_optout'               => $stats_optout,
+      'env'                        => $env,
+      'uuid'                       => fqdn_uuid($name),
+      'project_inactivity_timeout' => $project_inactivity_timeout,
+      'project_dangling_timeout'   => $project_dangling_timeout,
+      'projects_root'              => $projects_root
     }),
     owner   => $name,
     group   => $name,
