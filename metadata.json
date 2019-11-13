@@ -1,6 +1,6 @@
 {
   "name": "microserve-docksal",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "author": "Marcus Hann",
   "summary": "Deploy and configure the Docksal development environment.",
   "license": "MIT",
