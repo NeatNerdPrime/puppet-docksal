@@ -67,7 +67,20 @@ docksal::config { 'ci_user':
 }
 ```
 
-## Limitations
+### Adding custom environment variables
 
-* Currently no way of adding custom variables to docksal.env
+To add custom environment variables to the `docksal.env` files managed by puppet, you can pass in the `env` parameter. For example:
+
+```puppet
+include docksal
+
+docksal::config { 'ci_user':
+  home_directory => '/var/ci_runner',
+  env => {
+    HOSTING_ENVIRONMENT => 'qa'
+  }
+}
+```
+
+## Limitations
 * User home directory default doesn't ever work for macos
